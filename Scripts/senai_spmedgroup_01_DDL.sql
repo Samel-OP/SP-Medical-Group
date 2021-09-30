@@ -1,0 +1,83 @@
+CREATE DATABASE SP_MED_GROUP;
+GO
+
+USE SP_MED_GROUP;
+GO
+
+CREATE TABLE tipoUsuario (
+  idTipoUsuario TINYINT PRIMARY KEY IDENTITY,
+  nomeTipoUsuario VARCHAR(25) UNIQUE NOT NULL
+);
+GO
+
+CREATE TABLE especialidade (
+  idEspecialidade TINYINT PRIMARY KEY IDENTITY,
+  nomeEspecialidade VARCHAR(75) UNIQUE NOT NULL
+);
+GO
+
+CREATE TABLE clinica (
+  idClinica SMALLINT PRIMARY KEY IDENTITY,
+  nomeFantasia VARCHAR(75) UNIQUE NOT NULL,
+  razaoSocial VARCHAR(75) NOT NULL,
+  CNPJ CHAR(18) UNIQUE NOT NULL,
+  inicioHorarioFunc TIME NOT NULL,
+  finalHorarioFunc TIME NOT NULL,
+  rua VARCHAR(75) UNIQUE NOT NULL,
+  bairro VARCHAR(75) UNIQUE NOT NULL,
+  cidade VARCHAR(50) NOT NULL,
+  estado CHAR(2) NOT NULL,
+  CEP CHAR(9) UNIQUE NOT NULL
+);
+GO
+
+CREATE TABLE situacao (
+  idSituacao TINYINT PRIMARY KEY IDENTITY,
+  nomeSituacao VARCHAR(20) UNIQUE NOT NULL
+);
+GO
+
+CREATE TABLE usuario (
+  idUsuario INT PRIMARY KEY IDENTITY,
+  idTipoUsuario TINYINT FOREIGN KEY REFERENCES tipoUsuario(idTipoUsuario),
+  nomeUsuario VARCHAR(100) NOT NULL,
+  email VARCHAR(256) UNIQUE NOT NULL,
+  senha VARCHAR(10) NOT NULL CHECK( len(senha) >= 8)
+);
+GO
+
+CREATE TABLE paciente (
+  idPaciente INT PRIMARY KEY IDENTITY,
+  idUsuario INT FOREIGN KEY REFERENCES usuario(idUsuario),
+  nomePaciente VARCHAR(100) NOT NULL,
+  dataNascimento DATE NOT NULL,
+  telefone VARCHAR(15) UNIQUE,
+  RG CHAR(10) UNIQUE NOT NULL,
+  CPF CHAR(11) UNIQUE NOT NULL,
+  rua VARCHAR(75) NOT NULL,
+  bairro VARCHAR(75) NOT NULL,
+  cidade VARCHAR(75) NOT NULL,
+  estado VARCHAR(2) NOT NULL,
+  CEP CHAR(9) NOT NULL
+);
+GO
+
+CREATE TABLE medico (
+  idMedico SMALLINT PRIMARY KEY IDENTITY,
+  idClinica SMALLINT FOREIGN KEY REFERENCES clinica(idClinica),
+  idEspecialidade TINYINT FOREIGN KEY REFERENCES especialidade(idEspecialidade),
+  idUsuario INT FOREIGN KEY REFERENCES usuario(idUsuario),
+  crm CHAR(8) UNIQUE NOT NULL,
+  nomeMedico VARCHAR(100) NOT NULL
+);
+GO
+
+CREATE TABLE consulta (
+  idConsulta INT PRIMARY KEY IDENTITY,
+  idPaciente INT FOREIGN KEY REFERENCES paciente(idPaciente),
+  idMedico SMALLINT FOREIGN KEY REFERENCES medico(idMedico),
+  idSituacao TINYINT FOREIGN KEY REFERENCES situacao(idSituacao),
+  dataConsulta DATETIME NOT NULL,
+  descricao VARCHAR(300) NOT NULL
+);
+GO
