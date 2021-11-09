@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Rambla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orienta&display=swap');
+
+/* Home */
+
 *{
     margin: 0;
     padding: 0;
@@ -23,7 +28,7 @@ header{
 }
 
 .links_header{
-    margin-right: 23vw;
+    margin-right: 21vw;
 }
 
 .link{
@@ -70,19 +75,106 @@ header{
     margin-left: 95vw;
 }
 
-/* button {
-    display: flex;
-    justify-content:;
-} */
-
 button i{
     font-size: 24px;
 }
 
-/* .btn_bol{
-    width: 20px;
-    border-radius: 100px;
-    background-color: black;
+
+/* Login */
+
+section{
+    opacity: 0.9;
+}
+
+.banner_login{
+    width: 100vw;
+    height: 80vh;
+    background-image: url(img/banner_login.png);   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_form{
+    width: 20vw;
+    height: 45vh;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.5);
+    border: black solid 1px;
+    border-radius: 15px;
+    box-shadow: grey 10px 10px 15px;
+}
+
+.container_form form{
     display: flex;
     flex-direction: column;
-} */
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo_login{
+    font-family: 'Rambla', sans-serif;
+    font-size: 42px;
+}
+
+.login_campo{
+    width: 12vw;
+    height: 4vh;
+    margin-top: 5vh;
+    border-radius: 3px;
+    border: black solid 1px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+::placeholder{
+    padding-left: 10px;
+    color: black;
+}
+
+.btn_login{
+    width: 6vw;
+    height: 5vh;
+    background: #006FAB;
+    cursor: pointer;
+    color: white;
+    border: none;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    border-radius: 7px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    padding-bottom: 3px;
+}
+
+.btn_login:hover {
+    background-color: #00E0FF;
+    animation: ease;
+    font-weight: 600;
+    color: black;
+    transition: ease 0.3s;
+}
+
+.cadastre_se{
+    font-family: 'Orienta', sans-serif;
+    font-size: 14px;
+}
+
+footer{
+    width: 100vw;
+    height: 9.6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+}
+
+footer nav a{
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    color: black;
+    margin-left: 2vw;
+}
