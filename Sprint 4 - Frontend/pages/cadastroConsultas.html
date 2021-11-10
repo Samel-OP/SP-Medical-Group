@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Cadastro de Consultas</title>
+</head>
+<body>
+    <header>
+        <img class="logo_header" src="./css/img/SP_MEDICAL_GROUP-removebg-preview 1.png" alt="logo">
+
+        <nav class="links_header">
+            <a class="link" href="#">Home</a>
+            <a class="link" href="#">Consultas</a>
+            <a class="link" href="#">Contato</a>
+            <a class="link" href="#">Login</a>
+        </nav>
+    </header>
+    <section class="banner_cadastro">
+        <div class="container_form_cadastro">
+            <form action="" method="POST">
+                <h1 class="titulo_cadastro">Cadastro de Consulta</h1>
+                <hr class="barra_cadastro">
+
+                <label class="form_pergunta">Nome do médico</label>
+                <input class="input_dados" type="text" name="nomeMedico" required>
+
+                <label class="form_pergunta">Nome do paciente</label>
+                <input class="input_dados" type="text" name="nomePaciente" required>
+
+                <label class="form_pergunta">Situação</label>
+                <select class="input_dados" required>
+                    <option value="Selecione" disabled selected>Selecione</option>
+                    <option value="Realizada">Realizada</option>
+                    <option value="Cancelada">Cancelada</option>
+                    <option value="Aguardando">Aguardando</option>
+                </select>
+
+                <label class="form_pergunta">Data da consulta</label>
+                <input class="input_dados" type="datetime" name="" required>
+
+                <button type="submit" name="submit" class="btn_cadastrar">Cadastrar</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

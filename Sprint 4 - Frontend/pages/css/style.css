@@ -15,7 +15,7 @@ body{
 
 header{
     width: auto;
-    height: 100px;
+    height: 75px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -23,12 +23,13 @@ header{
 }
 
 .logo_header{
+    height: 100px;
     margin-top: 20px;
     margin-left: 18vw;
 }
 
 .links_header{
-    margin-right: 21vw;
+    margin-right: 16vw;
 }
 
 .link{
@@ -82,12 +83,12 @@ button i{
 
 /* Login */
 
-section{
+.banner_login section{
     opacity: 0.9;
 }
 
 .banner_login{
-    width: 100vw;
+    width: auto;
     height: 80vh;
     background-image: url(img/banner_login.png);   
     display: flex;
@@ -127,10 +128,11 @@ section{
     border-radius: 3px;
     border: black solid 1px;
     background: rgba(255, 255, 255, 0.5);
+    padding-left: 5px;
+    padding-top: 1px;
 }
 
 ::placeholder{
-    padding-left: 10px;
     color: black;
 }
 
@@ -163,8 +165,8 @@ section{
 }
 
 footer{
-    width: 100vw;
-    height: 9.6vh;
+    width: auto;
+    height: 12.2vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -177,4 +179,80 @@ footer nav a{
     font-size: 18px;
     color: black;
     margin-left: 2vw;
+}
+
+/* Cadastro de consulta e listagem do administrador */
+
+.banner_cadastro section{
+    opacity: 0.9;
+}
+
+.banner_cadastro{
+    width: auto;
+    height: 80vh;
+    background-image: url(img/imagem2.jpg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_form_cadastro{
+    width: 25vw;
+    height: 55vh;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.5);
+    border: white solid 1px;
+    border-radius: 15px;
+    box-shadow: grey 10px 10px 15px;
+}
+
+.container_form_cadastro form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo_cadastro{
+    font-family: 'Rambla', sans-serif;
+    font-size: 42px;
+}
+
+.barra_cadastro{
+    width: 20vw;
+    border-color: black;
+}
+
+.form_pergunta{
+  color: black;  
+}
+
+.input_dados{
+    width: 12vw;
+    height: 4vh;
+    margin-top: 5vh;
+    border-radius: 3px;
+    border: black solid 1px;
+    background: rgba(255, 255, 255, 0.5);
+    padding-left: 5px;
+    padding-top: 1px;
+}
+
+.btn_cadastrar{
+    width: 6vw;
+    height: 5vh;
+    background: #006FAB;
+    cursor: pointer;
+    color: white;
+    border: none;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    border-radius: 7px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    padding-bottom: 3px;
 }
