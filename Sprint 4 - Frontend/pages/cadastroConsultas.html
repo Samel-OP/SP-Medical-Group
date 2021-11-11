@@ -24,13 +24,13 @@
                 <h1 class="titulo_cadastro">Cadastro de Consulta</h1>
                 <hr class="barra_cadastro">
 
-                <label class="form_pergunta">Nome do médico</label>
+                <label class="form_pergunta_nomeMedico">Nome do médico</label>
                 <input class="input_dados" type="text" name="nomeMedico" required>
 
-                <label class="form_pergunta">Nome do paciente</label>
+                <label class="form_pergunta_nomePaciente">Nome do paciente</label>
                 <input class="input_dados" type="text" name="nomePaciente" required>
 
-                <label class="form_pergunta">Situação</label>
+                <label class="form_pergunta_situacao">Situação</label>
                 <select class="input_dados" required>
                     <option value="Selecione" disabled selected>Selecione</option>
                     <option value="Realizada">Realizada</option>
@@ -38,11 +38,30 @@
                     <option value="Aguardando">Aguardando</option>
                 </select>
 
-                <label class="form_pergunta">Data da consulta</label>
-                <input class="input_dados" type="datetime" name="" required>
+                <label class="form_pergunta_dataConsulta">Data da consulta</label>
+                <input class="input_dados" type="datetime-local" name="dataConsulta" required>
 
                 <button type="submit" name="submit" class="btn_cadastrar">Cadastrar</button>
             </form>
+        </div>
+    </section>
+    <section class="divisao">
+    </section>
+    <section class="banner_listar_consulta">
+        <div>
+            <h2 class="titulo_lista_consulta">Lista de Consultas</h2>
+            <hr class="barra_lista_consulta">
+
+            <table class="tabela_lista_">
+                <tr>
+                    <th>Eae fi</th>
+                    <th>Olá</th>
+                    <th>Coé</th>
+                </tr>
+                <td>Boa</td>
+                <td>Ruim</td>
+                <td>Ótimo</td>
+            </table>
         </div>
     </section>
 </body>
