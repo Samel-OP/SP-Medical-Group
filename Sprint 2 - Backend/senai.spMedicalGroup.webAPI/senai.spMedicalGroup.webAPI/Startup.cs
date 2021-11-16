@@ -28,6 +28,17 @@ namespace senai.spMedicalGroup.webAPI
                     options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
             });
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                                builder =>
+                                {
+                                    builder.WithOrigins("http://localhost:3000")
+                                    .AllowAnyHeader()
+                                    .AllowAnyMethod();
+                                });
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Version = "v1", Title = "SpMedicalGroup.webAPI" });
@@ -76,6 +87,8 @@ namespace senai.spMedicalGroup.webAPI
             });
 
             app.UseRouting();
+
+            app.UseCors("CorsPolicy");
 
             app.UseAuthentication();
 

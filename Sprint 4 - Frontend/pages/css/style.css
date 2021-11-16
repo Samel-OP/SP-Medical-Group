@@ -15,7 +15,7 @@ body{
 
 header{
     width: auto;
-    height: 75px;
+    height: 9vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -189,7 +189,7 @@ footer nav a{
 
 .banner_cadastro{
     width: auto;
-    height: 82vh;
+    height: 91vh;
     background-image: url(img/imagem2.jpg);
     display: flex;
     flex-direction: column;
@@ -198,8 +198,8 @@ footer nav a{
 }
 
 .container_form_cadastro{
-    width: 25vw;
-    height: 65vh;
+    width: 30vw;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -212,13 +212,13 @@ footer nav a{
 .container_form_cadastro form{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
 }
 
 .titulo_cadastro{
     font-family: 'Rambla', sans-serif;
     font-size: 32px;
+    margin-left: 1.5vw;
 }
 
 .barra_cadastro{
@@ -227,36 +227,12 @@ footer nav a{
     margin-bottom: 2vh;
 }
 
-.form_pergunta_nomeMedico{
+.form_pergunta{
     font-family: 'Orienta', sans-serif;
     font-size: 16px;
     color: black;
-    margin-top: 3vh; 
-    margin-right: 9.5vw;
-}
-
-.form_pergunta_nomePaciente{
-    font-family: 'Orienta', sans-serif;
-    font-size: 16px;
-    color: black;
-    margin-top: 3vh; 
-    margin-right: 9vw;
-}
-
-.form_pergunta_situacao{
-    font-family: 'Orienta', sans-serif;
-    font-size: 16px;
-    color: black;
-    margin-top: 3vh; 
-    margin-right: 13.7vw;
-}
-
-.form_pergunta_dataConsulta{
-    font-family: 'Orienta', sans-serif;
-    font-size: 16px;
-    color: black;
-    margin-top: 3vh; 
-    margin-right: 9.7vw;
+    margin-top: 3vh;  
+    margin-bottom: 0.5vh; 
 }
 
 .input_dados{
@@ -266,6 +242,19 @@ footer nav a{
     border: black solid 1px;
     background: rgba(255, 255, 255, 0.5);
     padding-left: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+}
+
+.input_dados_descricao{
+    width: 18vw;
+    height: 12vh;
+    resize: none;
+    border-radius: 3px;
+    border: black solid 1px;
+    background: rgba(255, 255, 255, 0.5);
+    padding-left: 5px;
+    padding-top: 0.9vh;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 14px;
 }
@@ -282,6 +271,7 @@ footer nav a{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 20px;
     padding-bottom: 3px;
+    margin-left: 4vw;
 }
 
 .btn_cadastrar:hover{
@@ -292,19 +282,13 @@ footer nav a{
     transition:ease-in-out 0.3s;
 }
 
-.divisao{
-    width: 100%;
-    height: 8vh;
-    background: linear-gradient(to bottom, rgba(142,142,142,1) 0%, rgba(142,142,142,1) 5%, rgba(208,236,247,1) 95%, rgba(208,236,247,1) 20%);
-}
-
 /* Listar consultas */
 
 .banner_listar_consulta{
     width: 100%;
     height: auto;
     background-repeat: no-repeat;
-    background-color: lightgrey;
+    background-color: lightblue;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -464,8 +448,172 @@ footer{
 .banner_listar_consulta_paciente{
     height: auto;
     background-repeat: no-repeat;
-    background-color: lightgrey;
+    background-color: lightblue;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+/* Descrição da Consulta - Paciente */
+
+.container_descricao{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background: url(img/fundo_consulta_medico.png);
+    padding-top: 5vh;
+    padding-bottom: 6vh;
+}
+
+.box_descricao{
+    width: 65vw;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    margin-left: 4.9vw;
+    margin-right: 3vw;
+}
+
+.box_consulta_voltar{
+    display: flex;
+}
+
+.voltar_consulta{
+    display: flex;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    margin-top: 5vh;
+    margin-right: 20vw;
+}
+
+.voltar_consulta a{
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 1vw;
+}
+
+.voltar_consulta i{
+    font-size: 52px;
+}
+
+.titulo_consulta{
+    font-family: 'Rambla', sans-serif;
+    font-size: 42px;
+    color: black;
+    margin-top: 5vh;
+    margin-right: 29vw;
+}
+
+.barra_consulta{
+    width: 8.5vw;
+    height: 1px;
+    border-color: black;
+    margin-right: 1.7vw;
+}
+
+.dados_descricao{
+    display: flex;
+    width: 55vw;
+    height: 25vh;
+    margin-top: 8vh;
+}
+
+.primeira_coluna_descricao{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fundo_dados{
+    width: 25vw;
+    height: 6vh;
+    background: rgba(255, 255, 255, 0.3);
+    border: black solid 1px;
+    border-radius: 5px;
+    margin-bottom: 6vh;
+}
+
+.descricao{
+    display: inline-block;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    padding-top: 1.6vh;
+    padding-left: 0.8vw;
+}
+
+.segunda_coluna_descricao{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 6vh;
+    margin-left: 4vw;
+}
+
+.fundo_dados_descricao{
+    width: 25vw;
+    height: 30vh;
+    background: rgba(255, 255, 255, 0.3);
+    border: black solid 1px;
+    border-radius: 5px;
+    margin-bottom: 6vh;
+}
+
+.descricao_consulta{
+    display: inline-block;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    padding-top: 1.6vh;
+    padding-left: 0.8vw;
+    border-radius: 5px;
+}
+
+/* Descrição da Consulta - Médico  */
+
+.descricao_consulta_text{
+    width: 25vw;
+    height: 30vh;
+    display: inline-block;
+    border: black solid 1px;
+    background: rgba(255, 255, 255, 0.3);
+    resize: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    padding-top: 1.6vh;
+    padding-left: 0.8vw;
+    border-radius: 5px; 
+}
+
+.btn_atualizar{
+    width: 12vw;
+    height: 5vh;
+    border: none;
+    border-radius: 5px;
+    background-color: #006FAB;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    margin-top: 2vh;
+    margin-left: 6vw;
+}
+
+.btn_atualizar:hover{
+    background-color: #00E0FF;
+    animation: ease;
+    font-weight: 700;   
+    color: black;
+    transition:ease-in-out 0.3s;
 }

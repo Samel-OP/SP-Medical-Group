@@ -7539,11 +7539,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\samue\\Desktop\\Projetos\\SP Medical Group\\senai.spMedicalGroup.webAPI\\senai.spMedicalGroup.webAPI\\senai.spMedicalGroup.webAPI.csproj",
+      "projectUniqueName": "C:\\Users\\samue\\Desktop\\SP-Medical-Group-API\\Sprint 2 - Backend\\senai.spMedicalGroup.webAPI\\senai.spMedicalGroup.webAPI\\senai.spMedicalGroup.webAPI.csproj",
       "projectName": "senai.spMedicalGroup.webAPI",
-      "projectPath": "C:\\Users\\samue\\Desktop\\Projetos\\SP Medical Group\\senai.spMedicalGroup.webAPI\\senai.spMedicalGroup.webAPI\\senai.spMedicalGroup.webAPI.csproj",
+      "projectPath": "C:\\Users\\samue\\Desktop\\SP-Medical-Group-API\\Sprint 2 - Backend\\senai.spMedicalGroup.webAPI\\senai.spMedicalGroup.webAPI\\senai.spMedicalGroup.webAPI.csproj",
       "packagesPath": "C:\\Users\\samue\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\samue\\Desktop\\Projetos\\SP Medical Group\\senai.spMedicalGroup.webAPI\\senai.spMedicalGroup.webAPI\\obj\\",
+      "outputPath": "C:\\Users\\samue\\Desktop\\SP-Medical-Group-API\\Sprint 2 - Backend\\senai.spMedicalGroup.webAPI\\senai.spMedicalGroup.webAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\samue\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7621,7 +7621,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

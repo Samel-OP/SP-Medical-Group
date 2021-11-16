@@ -18,93 +18,96 @@
             <a class="link" href="#">Login</a>
         </nav>
     </header>
-    <section class="banner_cadastro">
-        <div class="container_form_cadastro">
-            <form action="" method="POST">
-                <h1 class="titulo_cadastro">Cadastro de Consulta</h1>
-                <hr class="barra_cadastro">
-
-                <label class="form_pergunta_nomeMedico">Nome do médico</label>
-                <input class="input_dados" type="text" name="nomeMedico" required>
-
-                <label class="form_pergunta_nomePaciente">Nome do paciente</label>
-                <input class="input_dados" type="text" name="nomePaciente" required>
-
-                <label class="form_pergunta_situacao">Situação</label>
-                <select class="input_dados" required>
-                    <option value="Selecione" disabled selected>Selecione</option>
-                    <option value="Realizada">Realizada</option>
-                    <option value="Cancelada">Cancelada</option>
-                    <option value="Aguardando">Aguardando</option>
-                </select>
-
-                <label class="form_pergunta_dataConsulta">Data da consulta</label>
-                <input class="input_dados" type="datetime-local" name="dataConsulta" required>
-
-                <button type="submit" name="submit" class="btn_cadastrar">Cadastrar</button>
-            </form>
-        </div>
-    </section>
-    <section class="divisao">
-    </section>
-    <section class="banner_listar_consulta"> 
-        <div class="box_titulo_lista">
-            <h2 class="titulo_lista_consulta">Lista de Consultas</h2>
-            <hr class="barra_lista_consulta">
-        </div>  
-        <div class="container_lista">
-            <div class="box_lista">
-                <table class="tabela_lista">
-                    <div class="box_lista_conteudo">
-                        <td class="numero_Consulta">N° Consulta</td>
-                        <td class="nome_paciente">Samuel Pereira</td>
-                        <td class="data_consulta">20/04/2021 - 15:00</td>
-                        <td><button class="btn_lista_detalhes">Ver detalhes</button></td>
-                    </div>
-                </table>
+    <main>
+        <section class="banner_cadastro">
+            <div class="container_form_cadastro">
+                <form action="" method="post">
+                    <h1 class="titulo_cadastro">Cadastro de Consulta</h1>
+                    <hr class="barra_cadastro">
+    
+                    <label class="form_pergunta">Nome do médico</label>
+                    <input class="input_dados" type="text" name="nomeMedico" placeholder="Escreva aqui" required>
+    
+                    <label class="form_pergunta">Nome do paciente</label>
+                    <input class="input_dados" type="text" name="nomePaciente" placeholder="Escreva aqui" required>
+    
+                    <label class="form_pergunta">Situação</label>
+                    <select class="input_dados" required>
+                        <option value="Selecione" disabled selected>Selecione</option>
+                        <option value="Realizada">Realizada</option>
+                        <option value="Cancelada">Cancelada</option>
+                        <option value="Aguardando">Aguardando</option>
+                    </select>
+    
+                    <label class="form_pergunta">Data da consulta</label>
+                    <input class="input_dados" type="datetime-local" name="dataConsulta" required>
+    
+                    <label class="form_pergunta">Descrição</label>
+                    <textarea class="input_dados_descricao" placeholder="Escreva aqui"></textarea>
+    
+                    <button type="submit" name="submit" class="btn_cadastrar">Cadastrar</button>
+                </form>
             </div>
-            <div class="box_lista">
-                <table class="tabela_lista">
-                    <div class="box_lista_conteudo">
-                        <td class="numero_Consulta">N° Consulta</td>
-                        <td class="nome_paciente">Samuel Pereira</td>
-                        <td class="data_consulta">20/04/2021 - 15:00</td>
-                        <td><button class="btn_lista_detalhes">Ver detalhes</button></td>
-                    </div>
-                </table>
+        </section>
+        <section class="banner_listar_consulta"> 
+            <div class="box_titulo_lista">
+                <h2 class="titulo_lista_consulta">Lista de Consultas</h2>
+                <hr class="barra_lista_consulta">
+            </div>  
+            <div class="container_lista">
+                <div class="box_lista">
+                    <table class="tabela_lista">
+                        <div class="box_lista_conteudo">
+                            <td class="numero_Consulta">N° Consulta</td>
+                            <td class="nome_paciente">Samuel Pereira</td>
+                            <td class="data_consulta">20/04/2021 - 15:00</td>
+                            <td><button class="btn_lista_detalhes">Ver detalhes</button></td>
+                        </div>
+                    </table>
+                </div>
+                <div class="box_lista">
+                    <table class="tabela_lista">
+                        <div class="box_lista_conteudo">
+                            <td class="numero_Consulta">N° Consulta</td>
+                            <td class="nome_paciente">Samuel Pereira</td>
+                            <td class="data_consulta">20/04/2021 - 15:00</td>
+                            <td><button class="btn_lista_detalhes">Ver detalhes</button></td>
+                        </div>
+                    </table>
+                </div>
+                <div class="box_lista">
+                    <table class="tabela_lista">
+                        <div class="box_lista_conteudo">
+                            <td class="numero_Consulta">N° Consulta</td>
+                            <td class="nome_paciente">Samuel Pereira</td>
+                            <td class="data_consulta">20/04/2021 - 15:00</td>
+                            <td><button class="btn_lista_detalhes">Ver detalhes</button></td>
+                        </div>
+                    </table>
+                </div>
+                <div class="box_lista">
+                    <table class="tabela_lista">
+                        <div class="box_lista_conteudo">
+                            <td class="numero_Consulta">N° Consulta</td>
+                            <td class="nome_paciente">Samuel Pereira</td>
+                            <td class="data_consulta">20/04/2021 - 15:00</td>
+                            <td><button class="btn_lista_detalhes">Ver detalhes</button></td>
+                        </div>
+                    </table>
+                </div>
+                <div class="box_lista">
+                    <table class="tabela_lista">
+                        <div class="box_lista_conteudo">
+                            <td class="numero_Consulta">N° Consulta</td>
+                            <td class="nome_paciente">Samuel Pereira</td>
+                            <td class="data_consulta">20/04/2021 - 15:00</td>
+                            <td><button class="btn_lista_detalhes">Ver detalhes</button></td>
+                        </div>
+                    </table>
+                </div>
             </div>
-            <div class="box_lista">
-                <table class="tabela_lista">
-                    <div class="box_lista_conteudo">
-                        <td class="numero_Consulta">N° Consulta</td>
-                        <td class="nome_paciente">Samuel Pereira</td>
-                        <td class="data_consulta">20/04/2021 - 15:00</td>
-                        <td><button class="btn_lista_detalhes">Ver detalhes</button></td>
-                    </div>
-                </table>
-            </div>
-            <div class="box_lista">
-                <table class="tabela_lista">
-                    <div class="box_lista_conteudo">
-                        <td class="numero_Consulta">N° Consulta</td>
-                        <td class="nome_paciente">Samuel Pereira</td>
-                        <td class="data_consulta">20/04/2021 - 15:00</td>
-                        <td><button class="btn_lista_detalhes">Ver detalhes</button></td>
-                    </div>
-                </table>
-            </div>
-            <div class="box_lista">
-                <table class="tabela_lista">
-                    <div class="box_lista_conteudo">
-                        <td class="numero_Consulta">N° Consulta</td>
-                        <td class="nome_paciente">Samuel Pereira</td>
-                        <td class="data_consulta">20/04/2021 - 15:00</td>
-                        <td><button class="btn_lista_detalhes">Ver detalhes</button></td>
-                    </div>
-                </table>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
     <footer>
         <div class="atendimento">
             <span>Central de Atendimento</span>
