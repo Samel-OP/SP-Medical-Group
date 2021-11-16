@@ -52,9 +52,9 @@ VALUES (3,'Ligia','ligia@gmail.com','ligia121'),
 GO
 
 INSERT INTO medico (idClinica,idEspecialidade,idUsuario,crm,nomeMedico)
-VALUES (2,2,10,'54356SP','Ricardo Lemos'),
-	   (2,17,11,'53452SP','Roberto Possarle'),
-	   (2,16,12,'65463SP','Helena Strada');
+VALUES (1,2,8,'54356SP','Ricardo Lemos'),
+	   (1,17,9,'53452SP','Roberto Possarle'),
+	   (1,16,10,'65463SP','Helena Strada');
 GO
 
 INSERT INTO paciente (idUsuario,nomePaciente,dataNascimento,telefone,RG,CPF,rua,bairro,cidade,estado,CEP)
@@ -66,11 +66,11 @@ VALUES (3,'Ligia','1983-10-13','1134567654','435225435','94839859000','Rua Estad
 GO
 
 INSERT INTO consulta (idPaciente,idMedico,idSituacao,dataConsulta,descricao)
-VALUES (7,3,1,'20/01/2020 15:00','Paciente está bem'),
-	   (2,2,2,'06/01/2020 10:00','Tudo correu bem'),
-	   (3,2,1,'07/02/2020 11:00','Foi conversado sobre o problema mas está bem'),
-	   (2,2,1,'06/02/2018 10:00','Paciente está bem'),
-	   (4,1,2,'07/02/2019 11:00','Foi aplicado anestesia para realizar procedimento'),
-	   (7,3,3,'08/03/2020 15:00','Ainda não ocorreu'),
-	   (4,1,3,'09/03/2020 11:00','Ainda não ocorreu');
+VALUES (7,7,1,'20/01/2020 15:00','Paciente está bem'),
+	   (2,6,2,'06/01/2020 10:00','Tudo correu bem'),
+	   (3,6,1,'07/02/2020 11:00','Foi conversado sobre o problema mas está bem'),
+	   (2,6,1,'06/02/2018 10:00','Paciente está bem'),
+	   (4,5,2,'07/02/2019 11:00','Foi aplicado anestesia para realizar procedimento'),
+	   (7,7,3,'08/03/2020 15:00','Ainda não ocorreu'),
+	   (4,5,3,'09/03/2020 11:00','Ainda não ocorreu');
 GO
