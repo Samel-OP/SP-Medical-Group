@@ -1,5 +1,8 @@
 import React from "react";
 
+import facebook from '../assets/css/img/facebook.png'
+import instagram from '../assets/css/img/instagram.png'
+
 export default function Rodape(){
 
     return(
@@ -16,8 +19,8 @@ export default function Rodape(){
         <div className="redes_sociais">
             <span>Acompanhe nós em nossas redes sociais</span>
             <div className="logos_redes_sociais">
-                <img src="css/img/instagram.png" alt="logo Instagram" />
-                <img src="css/img/facebook.png" alt="logo Facebook" />
+                <img src={instagram} alt="logo Instagram" />
+                <img src={facebook} alt="logo Facebook" />
             </div>
         </div>
     </footer>

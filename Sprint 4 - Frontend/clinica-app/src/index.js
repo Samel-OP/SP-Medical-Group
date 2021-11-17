@@ -12,11 +12,11 @@ import './index.css';
 import App from './pages/home/App';
 import Login from './pages/login/login.jsx'
 import NotFound from './pages/notFound/notFound';
+import cadastroConsulta from './pages/cadastroConsultas/cadastroConsulta';
 
 import { parseJwt, usuarioAutenticado } from '../src/services/auth';
 
 import reportWebVitals from './reportWebVitals';
-import cadastroConsulta from './pages/cadastroConsultas/cadastroConsulta';
 
 const PermissaoAdm = ({ component: Component }) => (
   <Route
@@ -31,10 +31,23 @@ const PermissaoAdm = ({ component: Component }) => (
   />
 );
 
-const PermissaoComum = ({ component: Component }) => (
+const PermissaoMedico = ({ component: Component }) => (
   <Route
     render={(props) =>
       usuarioAutenticado() && parseJwt().role === '2' ? (
+        // operador spread
+        <Component {...props} />
+      ) : (
+        <Redirect to="login" />
+      )
+    }
+  />
+);
+
+const PermissaoPaciente = ({ component: Component }) => (
+  <Route
+    render={(props) =>
+      usuarioAutenticado() && parseJwt().role === '3' ? (
         // operador spread
         <Component {...props} />
       ) : (

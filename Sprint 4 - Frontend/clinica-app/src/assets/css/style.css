@@ -304,6 +304,9 @@ footer nav a{
 
 .container_lista{
     width: 40vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     background: rgba(45, 45, 45, 0.7);
     border-radius: 5px;
     margin-bottom: 4vh;
@@ -335,11 +338,11 @@ footer nav a{
 .tabela_lista{
     display: flex;
     align-items: center;
+    flex-direction: column;
 }
 
 .box_lista_conteudo{
     display: flex;
-    flex-direction: column;
     margin-top: 10px;
 }
 
@@ -357,6 +360,7 @@ footer nav a{
 }
 
 .nome_paciente{
+    color: black;
     padding-left: 2vw;
     font-weight: 500;
 }

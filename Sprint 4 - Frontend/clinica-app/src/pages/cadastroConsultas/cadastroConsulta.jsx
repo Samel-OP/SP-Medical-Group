@@ -1,5 +1,6 @@
 import { React, Component } from 'react';
 import axios from 'axios';
+
 import Header from '../../components/header';
 import Rodape from '../../components/rodape';
 
@@ -23,19 +24,19 @@ export default class cadastroConsulta extends Component {
 
     //Listar os eventos
 
-    buscarTiposEventos = () => {
-        axios('http://localhost:5000/api/consulta' , {
+    buscarConsultas = () => {
+        axios('http://localhost:5000/api/consulta', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
             },
         })
-        .then((resposta) => {
-            if (resposta.status === 200) {
-                this.setState({ listaConsultas: resposta.data });
-                console.log(this.state.listaConsultas);
-            }
-        })
-        .catch((erro) => console.log(erro));
+            .then((resposta) => {
+                if (resposta.status === 200) {
+                    this.setState({ listaConsultas: resposta.data });
+                    console.log(this.state.listaConsultas);
+                }
+            })
+            .catch((erro) => console.log(erro));
     };
 
     //Cadastro
@@ -57,21 +58,25 @@ export default class cadastroConsulta extends Component {
                 Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
             },
         })
-        .then((resposta) => {
-            if (resposta.status === 201) {
-                console.log('Consulta cadastrada!')
+            .then((resposta) => {
+                if (resposta.status === 201) {
+                    console.log('Consulta cadastrada!')
+                    this.setState({ isLoading: false });
+                }
+            })
+            .catch((erro) => {
+                console.log(erro);
                 this.setState({ isLoading: false });
-            }
-        })
-        .catch((erro) => {
-            console.log(erro);
-            this.setState({ isLoading: false });
-        })
-        .then(this.buscarTiposEventos);
+            })
+            .then(this.buscarConsultas);
     };
 
     atualizaStateCampo = (campo) => {
-        
+        this.setState({ [campo.target.name]: campo.target.value });
+    };
+
+    componentDidMount() {
+        this.buscarConsultas();
     }
 
 
@@ -116,16 +121,21 @@ export default class cadastroConsulta extends Component {
                             <hr class="barra_lista_consulta" />
                         </div>
                         <div class="container_lista">
-                            <div class="box_lista">
-                                <table class="tabela_lista">
-                                    <div class="box_lista_conteudo">
-                                        <td class="numero_Consulta">N° Consulta</td>
-                                        <td class="nome_paciente">Samuel Pereira</td>
-                                        <td class="data_consulta">20/04/2021 - 15:00</td>
-                                        <td><button class="btn_lista_detalhes">Ver detalhes</button></td>
+                            {this.state.listaConsultas.map((consulta) => {
+                                return (
+                                    <div class="box_lista">
+                                        <table class="tabela_lista">
+                                            <tr class="box_lista_conteudo" key={consulta.idConsulta}>
+                                                <td class="numero_Consulta">{consulta.idConsulta}</td>
+                                                <td class="nome_paciente">{consulta.idPaciente}</td>
+                                                <td class="data_consulta">{consulta.dataConsulta}</td>
+                                                <td><button class="btn_lista_detalhes">Ver detalhes</button></td>
+                                            </tr>
+
+                                        </table>
                                     </div>
-                                </table>
-                            </div>
+                                );
+                            })}
                         </div>
                     </section>
                 </main>
