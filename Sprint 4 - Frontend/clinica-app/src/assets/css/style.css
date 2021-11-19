@@ -352,21 +352,24 @@ footer nav a{
 }
 
 .numero_Consulta{
-    width: 6vw;
-    height: 1vh;
+    width: 5vw;
+    height: 3vh;
     border: black solid 1px;
     border-radius: 15px;
     padding-left: 0.7vw;
+    margin-top: 1vh;
 }
 
 .nome_paciente{
     color: black;
     padding-left: 2vw;
     font-weight: 500;
+    margin-top: 1.3vh;
 }
 
 .data_consulta{
     padding-left: 5vw;
+    margin-top: 1.2vh;
 }
 
 .btn_lista_detalhes{
@@ -378,7 +381,8 @@ footer nav a{
     border-radius: 10px;
     font-weight: 700;
     cursor: pointer;
-    margin-left: 3vw;
+    margin-left: 5vw;
+    margin-top: 0.7vh;
 }
 
 .btn_lista_detalhes:hover{

@@ -70,7 +70,36 @@ namespace senai.spMedicalGroup.webAPI.Repositories
 
         public List<Consulta> ListarTodos()
         {
-            return ctx.Consulta.ToList();
+            return ctx.Consulta.Select(p => new Consulta()
+            {
+                DataConsulta = p.DataConsulta,
+                IdConsulta = p.IdConsulta,
+                Descricao = p.Descricao,
+                IdMedicoNavigation = new Medico()
+                {
+                    Crm = p.IdMedicoNavigation.Crm,
+                    IdUsuarioNavigation = new Usuario()
+                    {
+                        NomeUsuario = p.IdMedicoNavigation.IdUsuarioNavigation.NomeUsuario,
+                        Email = p.IdMedicoNavigation.IdUsuarioNavigation.Email
+                    }
+                },
+                IdPacienteNavigation = new Paciente()
+                {
+                    Cpf = p.IdPacienteNavigation.Cpf,
+                    Telefone = p.IdPacienteNavigation.Telefone,
+                    IdUsuarioNavigation = new Usuario()
+                    {
+                        NomeUsuario = p.IdPacienteNavigation.IdUsuarioNavigation.NomeUsuario,
+                        Email = p.IdPacienteNavigation.IdUsuarioNavigation.Email
+                    }
+                },
+                IdSituacaoNavigation = new Situacao()
+                {
+                    NomeSituacao = p.IdSituacaoNavigation.NomeSituacao
+                }
+            }).ToList();
+
         }
     }
 }

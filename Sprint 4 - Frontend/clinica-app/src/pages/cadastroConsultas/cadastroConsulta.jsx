@@ -19,10 +19,11 @@ export default class cadastroConsulta extends Component {
             listaData: [],
             listaNome: [],
             listaIdConsulta: [],
+            listaPacientes: [],
         };
     }
 
-    //Listar os eventos
+    //Listar as consultas
 
     buscarConsultas = () => {
         axios('http://localhost:5000/api/consulta', {
@@ -38,6 +39,23 @@ export default class cadastroConsulta extends Component {
             })
             .catch((erro) => console.log(erro));
     };
+
+    //Listar nome dos pacientes
+    buscarPacientes = () => {
+        axios('http://localhost:5000/api/paciente',{
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
+            },
+        })
+            .then((resposta) => {
+                if (resposta.status === 200) {
+                    this.setState({ listaPacientes: resposta.data });
+                    console.log(resposta.data);
+                    console.log(this.state.listaPacientes)
+                }
+            })
+            .catch((erro) => console.log(erro));
+    }
 
     //Cadastro
 
@@ -77,6 +95,7 @@ export default class cadastroConsulta extends Component {
 
     componentDidMount() {
         this.buscarConsultas();
+        this.buscarPacientes();
     }
 
 
@@ -127,7 +146,8 @@ export default class cadastroConsulta extends Component {
                                         <table class="tabela_lista">
                                             <tr class="box_lista_conteudo" key={consulta.idConsulta}>
                                                 <td class="numero_Consulta">{consulta.idConsulta}</td>
-                                                <td class="nome_paciente">{consulta.idPaciente}</td>
+                                                <td class="nome_paciente">{console.log(this.state.listaPacientes)}{console.log(consulta.idPaciente)}</td>
+                                                {/* <td class="nome_paciente">{this.state.listaPacientes.find(P => P.idPaciente === consulta.idPaciente)}</td> */}
                                                 <td class="data_consulta">{consulta.dataConsulta}</td>
                                                 <td><button class="btn_lista_detalhes">Ver detalhes</button></td>
                                             </tr>

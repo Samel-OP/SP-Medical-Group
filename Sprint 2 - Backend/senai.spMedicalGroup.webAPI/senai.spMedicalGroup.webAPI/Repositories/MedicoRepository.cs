@@ -64,12 +64,35 @@ namespace senai.spMedicalGroup.webAPI.Repositories
                     IdSituacao = e.IdSituacao,
                     DataConsulta = e.DataConsulta,
                     Descricao = e.Descricao,
+                    IdMedicoNavigation = new Medico()
+                    {
+                        Crm = e.IdMedicoNavigation.Crm,
+                        IdUsuarioNavigation = new Usuario()
+                        {
+                            NomeUsuario = e.IdMedicoNavigation.IdUsuarioNavigation.NomeUsuario,
+                            Email = e.IdMedicoNavigation.IdUsuarioNavigation.Email
+                        }
+                    },
+                    IdPacienteNavigation = new Paciente()
+                    {
+                        Cpf = e.IdPacienteNavigation.Cpf,
+                        Telefone = e.IdPacienteNavigation.Telefone,
+                        IdUsuarioNavigation = new Usuario()
+                        {
+                            NomeUsuario = e.IdPacienteNavigation.IdUsuarioNavigation.NomeUsuario,
+                            Email = e.IdPacienteNavigation.IdUsuarioNavigation.Email
+                        }
+                    },
+                    IdSituacaoNavigation = new Situacao()
+                    {
+                        NomeSituacao = e.IdSituacaoNavigation.NomeSituacao
+                    }
                 }).ToList();                               
         }
 
         public List<Medico> ListarTodos()
         {
-            return ctx.Medicos.ToList();
+            return ctx.Medicos.Include(p => p.IdUsuarioNavigation).ToList();
         }
     }
 }

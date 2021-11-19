@@ -65,7 +65,7 @@ const routing = (
         <Route exact path="/" component={App} />  
         <Route path="/login" component={Login} />
         <Route path="/notFound" component={NotFound} />
-        <Route path="/cadastroConsulta" component={cadastroConsulta} />
+        <PermissaoAdm path="/cadastroConsulta" component={cadastroConsulta} />
         <Redirect to ="/notFound" />
       </Switch>
     </div>
