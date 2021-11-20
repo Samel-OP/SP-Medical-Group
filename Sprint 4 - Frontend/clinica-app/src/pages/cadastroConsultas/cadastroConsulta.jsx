@@ -14,11 +14,10 @@ export default class cadastroConsulta extends Component {
             situacao: 0,
             dataConsulta: new Date(),
             descricao: '',
+            isLoading: false,
 
             listaConsultas: [],
-            listaData: [],
-            listaNome: [],
-            listaIdConsulta: [],
+            listaSituacao: [],
             listaPacientes: [],
         };
     }
@@ -106,31 +105,62 @@ export default class cadastroConsulta extends Component {
                 <main>
                     <section class="banner_cadastro">
                         <div class="container_form_cadastro">
-                            <form action="" method="post">
+                            <form onSubmit={this.cadastrarConsulta}>
                                 <h1 class="titulo_cadastro">Cadastro de Consulta</h1>
                                 <hr class="barra_cadastro" />
 
                                 <label class="form_pergunta">Nome do médico</label>
-                                <input class="input_dados" type="text" name="nomeMedico" placeholder="Escreva aqui" required />
+                                <input class="input_dados" 
+                                type="text" 
+                                name="nomeMedico" 
+                                value={this.state.nomeMedico}
+                                placeholder="Escreva aqui" 
+                                onChange={this.atualizaStateCampo}
+                                required />
 
                                 <label class="form_pergunta">Nome do paciente</label>
-                                <input class="input_dados" type="text" name="nomePaciente" placeholder="Escreva aqui" required />
+                                <input class="input_dados" 
+                                type="text" 
+                                name="nomePaciente" 
+                                value={this.state.nomePaciente}
+                                placeholder="Escreva aqui" 
+                                onChange={this.atualizaStateCampo}
+                                required />
 
                                 <label class="form_pergunta">Situação</label>
-                                <select class="input_dados" required>
-                                    <option value="Selecione" disabled selected>Selecione</option>
-                                    <option value="Realizada">Realizada</option>
-                                    <option value="Cancelada">Cancelada</option>
-                                    <option value="Aguardando">Aguardando</option>
+                                <select 
+                                class="input_dados" 
+                                name="idSituacao"
+                                onChange={this.atualizaStateCampo}
+                                required>
+                                    <option value="0" disabled selected>Selecione</option>
+                                    <option value="3">Realizada</option>
+                                    <option value="2">Cancelada</option>
+                                    <option value="1">Aguardando</option>
                                 </select>
 
                                 <label class="form_pergunta">Data da consulta</label>
-                                <input class="input_dados" type="datetime-local" name="dataConsulta" required />
+                                <input class="input_dados" 
+                                type="datetime-local" 
+                                name="dataConsulta"
+                                value={this.state.dataConsulta} 
+                                onChange={this.atualizaStateCampo}
+                                required />
 
                                 <label class="form_pergunta">Descrição</label>
-                                <textarea class="input_dados_descricao" placeholder="Escreva aqui"></textarea>
+                                <textarea class="input_dados_descricao" 
+                                name="descricao"
+                                value={this.state.descricao}
+                                onChange={this.atualizaStateCampo}
+                                placeholder="Escreva aqui"></textarea>
 
-                                <button type="submit" name="submit" class="btn_cadastrar">Cadastrar</button>
+                                {this.state.isLoading && (
+                                    <button type="submit" name="submit" class="btn_cadastrar" >Loading...</button>
+                                )}
+
+                                {this.state.isLoading === false && (
+                                    <button type="submit" name="submit"  class="btn_cadastrar">Cadastrar</button>
+                                )}
                             </form>
                         </div>
                     </section>
@@ -141,13 +171,17 @@ export default class cadastroConsulta extends Component {
                         </div>
                         <div class="container_lista">
                             {this.state.listaConsultas.map((consulta) => {
-                                return (
+                                  console.log("aki")
+
+                            console.log(consulta)
+
+                              return (
                                     <div class="box_lista">
                                         <table class="tabela_lista">
                                             <tr class="box_lista_conteudo" key={consulta.idConsulta}>
                                                 <td class="numero_Consulta">{consulta.idConsulta}</td>
-                                                <td class="nome_paciente">{console.log(this.state.listaPacientes)}{console.log(consulta.idPaciente)}</td>
-                                                {/* <td class="nome_paciente">{this.state.listaPacientes.find(P => P.idPaciente === consulta.idPaciente)}</td> */}
+                                                {/* <td class="nome_paciente">{console.log(this.state.listaPacientes)}{console.log(consulta.idPaciente)}</td> */}
+                                                <td class="nome_paciente">{consulta.idPacienteNavigation.idUsuarioNavigation.nomeUsuario}</td>
                                                 <td class="data_consulta">{consulta.dataConsulta}</td>
                                                 <td><button class="btn_lista_detalhes">Ver detalhes</button></td>
                                             </tr>
