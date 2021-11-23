@@ -37,8 +37,18 @@ export default class Login extends Component {
                     console.log(parseJwt().role)
                     if (parseJwt().role === '1') {
                         this.props.history.push('/cadastroConsulta');
-                    } else {
-                        this.props.history.push('/notFound');
+                    } 
+                    else if (parseJwt().role === '2')
+                    {
+                        this.props.history.push('/consultaMedico');
+                    }
+                    else if (parseJwt().role === '3')
+                    {
+                        this.props.history.push('/consultaPaciente')
+                    }
+                    else
+                    {
+                        console.log("Não está cadastrado no sistema!")
                     }
                 }
             })

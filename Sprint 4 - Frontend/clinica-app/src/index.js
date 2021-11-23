@@ -13,6 +13,9 @@ import App from './pages/home/App';
 import Login from './pages/login/login.jsx'
 import NotFound from './pages/notFound/notFound';
 import cadastroConsulta from './pages/cadastroConsultas/cadastroConsulta';
+import consultaPaciente from './pages/consultaPacientes/consultaPaciente';
+import consultaMedico from './pages/consultaMedicos/consultaMedico';
+import descricaoPaciente from './pages/descricaoPacientes/descricaoPaciente';
 
 import { parseJwt, usuarioAutenticado } from '../src/services/auth';
 
@@ -66,6 +69,9 @@ const routing = (
         <Route path="/login" component={Login} />
         <Route path="/notFound" component={NotFound} />
         <PermissaoAdm path="/cadastroConsulta" component={cadastroConsulta} />
+        <PermissaoPaciente path="/consultaPaciente" component={consultaPaciente} />
+        <PermissaoMedico path="/consultaMedico" component={consultaMedico} />
+        <PermissaoPaciente path="/descricaoPaciente" component={descricaoPaciente} />
         <Redirect to ="/notFound" />
       </Switch>
     </div>
