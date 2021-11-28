@@ -89,7 +89,7 @@ button i{
 
 .banner_login{
     width: auto;
-    height: 80vh;
+    height: 81vh;
     background-image: url(img/banner_login.png);   
     display: flex;
     align-items: center;
@@ -140,6 +140,7 @@ button i{
     width: 6vw;
     height: 5vh;
     background: #006FAB;
+    transition:ease-in-out 0.3s;
     cursor: pointer;
     color: white;
     border: none;
@@ -190,7 +191,7 @@ footer nav a{
 .banner_cadastro{
     width: auto;
     height: 81vh;
-    background-image: url(img/imagem2.jpg);
+    background: url(img/cadastro_consulta.png);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -199,11 +200,11 @@ footer nav a{
 
 .container_form_cadastro{
     width: 28vw;
-    height: 75vh;
+    height: 76vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.6);
     border: white solid 1px;
     border-radius: 15px;
     box-shadow: grey 10px 10px 15px;
@@ -213,26 +214,29 @@ footer nav a{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .titulo_cadastro{
     font-family: 'Rambla', sans-serif;
     font-size: 32px;
-    margin-left: 1.5vw;
 }
 
 .barra_cadastro{
-    width: 18vw;
+    width: 275px;
     border: black solid 0.1px;
     margin-bottom: 2vh;
 }
 
 .form_pergunta{
+    width: 18vw;
     font-family: 'Orienta', sans-serif;
     font-size: 16px;
     color: black;
     margin-top: 3vh;  
     margin-bottom: 0.5vh; 
+    display: flex;
+    align-items:unset;
 }
 
 .input_dados{
@@ -262,16 +266,20 @@ footer nav a{
 .btn_cadastrar{
     width: 10vw;
     height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: #006FAB;
-    cursor: pointer;
-    color: white;
+    transition:ease-in-out 0.3s;
+    cursor: pointer;   
     border: none;
-    margin-top: 5vh;
     border-radius: 7px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 20px;
-    padding-bottom: 3px;
-    margin-left: 4vw;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 2vh;
+    margin-top: 3vh;
 }
 
 .btn_cadastrar:hover{
@@ -287,10 +295,10 @@ footer nav a{
 .banner_listar_consulta{
     width: 100%;
     height: auto;
-    background-color: lightblue;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-repeat: no-repeat;
 }
 
 .box_titulo_lista{
@@ -329,7 +337,7 @@ footer nav a{
 }
 
 .barra_lista_consulta{
-    width: 18vw;
+    width: 275px;
     border: black solid 0.1px;
     margin-bottom: 2vh;
 }
@@ -342,7 +350,8 @@ footer nav a{
 
 .box_lista_conteudo{
     display: flex;
-    margin-top: 10px;
+    align-items: center;
+    margin-top: 1.5%;
 }
 
 .tabela_lista td{
@@ -351,19 +360,23 @@ footer nav a{
 }
 
 .numero_Consulta{
-    width: 5vw;
-    height: 3vh;
+    width: 4vw;
+    height: 2.5vh;
+    display: flex;
+    align-items: center;
     border: black solid 1px;
     border-radius: 15px;
     padding-left: 0.7vw;
-    margin-top: 1vh;
+    margin-top: 1.3vh;
 }
 
 .nome_paciente{
+    width: 5vw;
     color: black;
     padding-left: 2vw;
     font-weight: 500;
-    margin-top: 1.3vh;
+    margin-top: 1.2vh;
+    margin-left: 2vw;
 }
 
 .data_consulta{
@@ -375,13 +388,14 @@ footer nav a{
     width: 8vw;
     height: 4vh;
     background-color: #006FAB;
+    transition:ease-in-out 0.2s;
     color: white;
     border: none;
     border-radius: 10px;
     font-weight: 700;
     cursor: pointer;
     margin-left: 5vw;
-    margin-top: 0.7vh;
+    margin-top: 1vh;
 }
 
 .btn_lista_detalhes:hover{
@@ -484,14 +498,14 @@ footer{
     height: 100%;
     display: flex;
     justify-content: center;
-    background: url(img/fundo_consulta_medico.png);
+    background: url(img/Fundo_Consulta.png);
     padding-top: 5vh;
-    padding-bottom: 6vh;
+    padding-bottom: 3vh;
 }
 
 .box_descricao{
     width: 65vw;
-    height: 70vh;
+    height: 73vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -499,6 +513,10 @@ footer{
     border-radius: 15px;
     margin-left: 4.9vw;
     margin-right: 3vw;
+}
+
+.box_titulo_voltar{
+    display: flex;
 }
 
 .box_consulta_voltar{
@@ -511,7 +529,7 @@ footer{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     margin-top: 5vh;
-    margin-right: 20vw;
+    margin-right: 18vw;
 }
 
 .voltar_consulta a{
@@ -535,10 +553,9 @@ footer{
 }
 
 .barra_consulta{
-    width: 8.5vw;
+    width: 150px;
     height: 1px;
-    border-color: black;
-    margin-right: 1.7vw;
+    border: 0.1px solid black;
 }
 
 .dados_descricao{
@@ -566,11 +583,17 @@ footer{
 
 .descricao{
     display: inline-block;
+    display: flex;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     font-weight: 700;
-    padding-top: 1.6vh;
+    padding-top: 1.5vh;
     padding-left: 0.8vw;
+}
+
+.dados{
+    margin-left: 1vw;
+    font-weight: 500;
 }
 
 .segunda_coluna_descricao{
@@ -593,15 +616,26 @@ footer{
 
 .descricao_consulta{
     display: inline-block;
+    display: flex;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     font-weight: 700;
-    padding-top: 1.6vh;
+    padding-top: 1.2vh;
     padding-left: 0.8vw;
     border-radius: 5px;
 }
 
 /* Descrição da Consulta - Médico  */
+
+.container_descricao_medico{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background: url(img/fundo_consulta_medico.png);
+    padding-top: 5vh;
+    padding-bottom: 3vh;
+}
 
 .descricao_consulta_text{
     width: 25vw;
@@ -619,24 +653,48 @@ footer{
 }
 
 .btn_atualizar{
-    width: 12vw;
-    height: 5vh;
+    width: 14vw;
+    height: 6vh;
     border: none;
     border-radius: 5px;
     background-color: #006FAB;
     color: white;
+    box-shadow: inset 0 0 0 0 #00E0FF;
+    transition: ease-in-out 0.3s;
     font-weight: 600;
     cursor: pointer;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
-    margin-top: 2vh;
+    margin-top: 1vh;
     margin-left: 6vw;
 }
 
-.btn_atualizar:hover{
-    background-color: #00E0FF;
-    animation: ease;
-    font-weight: 700;   
-    color: black;
+.btn_atualizar_desabilitado{
+    width: 14vw;
+    height: 6vh;
+    border: none;
+    border-radius: 5px;
+    background-color: lightcoral 0.1;
+    color: white;
+    box-shadow: inset 0 0 0 0 red;
+    transition: ease-in-out 0.3s;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    margin-top: 1vh;
+    margin-left: 6vw;
+}
+
+.btn_atualizar_desabilitado:hover{
     transition:ease-in-out 0.3s;
+    background-color: lightcoral 0.1;
+    box-shadow: inset 14vw 0 0 0 red;
+}
+
+.btn_atualizar:hover{
+    transition:ease-in-out 0.3s; 
+    box-shadow: inset 14vw 0 0 0 #00E0FF;  
+    font-weight: 700;
+    color: black;
 }

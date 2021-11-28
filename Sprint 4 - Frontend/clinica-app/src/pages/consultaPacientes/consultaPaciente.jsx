@@ -68,6 +68,13 @@ export default class consultaPaciente extends Component {
             .catch((erro) => console.log(erro));
     }
 
+    //Pegar Id
+    PegarIdConsulta = (id) => {
+        localStorage.setItem('usuario-consulta', id);
+        console.log(id)
+        this.props.history.push('/descricaoPaciente')
+    }
+
     componentDidMount() {
         this.buscarConsultas();
         this.buscarPacientes();
@@ -80,24 +87,29 @@ export default class consultaPaciente extends Component {
             <div>
                 <Header />
                 <main>
-                    <section class="banner_listar_consulta_paciente">
-                        <div class="box_titulo_lista">
-                            <h2 class="titulo_lista_consulta">Minhas Consultas</h2>
-                            <hr class="barra_lista_consulta_paciente" />
+                    <section className="banner_listar_consulta_paciente">
+                        <div className="box_titulo_lista">
+                            <h2 className="titulo_lista_consulta">Minhas Consultas</h2>
+                            <hr className="barra_lista_consulta_paciente" />
                         </div>
-                        <div class="container_lista_paciente">
+                        <div className="container_lista_paciente">
                             {this.state.listaMinhasConsultas.map((minhasConsultas) => {
                                 return (
-                                    <div class="box_lista">
-                                        <table class="tabela_lista">
-                                            <tr class="box_lista_conteudo" key={minhasConsultas.idConsulta}>
-                                                <td class="numero_Consulta">{minhasConsultas.idConsulta}</td>
-                                                <td class="nome_paciente">{minhasConsultas.idPacienteNavigation.idUsuarioNavigation.nomeUsuario}</td>
-                                                <td class="data_consulta">{Intl.DateTimeFormat("pt-BR", {
+                                    <div className="box_lista">
+                                        <table className="tabela_lista">
+                                            <tr className="box_lista_conteudo" key={minhasConsultas.idConsulta}>
+                                                <td className="numero_Consulta">{minhasConsultas.idConsulta}</td>
+                                                <td className="nome_paciente">{minhasConsultas.idPacienteNavigation.idUsuarioNavigation.nomeUsuario}</td>
+                                                <td className="data_consulta">{Intl.DateTimeFormat("pt-BR", {
                                                     year: 'numeric', month: 'numeric', day: 'numeric',
                                                     hour: 'numeric', minute: 'numeric', hour12: false
                                                 }).format(new Date(minhasConsultas.dataConsulta))}</td>
-                                                <td><button class="btn_lista_detalhes">Ver detalhes</button></td>
+                                                <td><button 
+                                                className="btn_lista_detalhes"
+                                                onClick={() => this.PegarIdConsulta(minhasConsultas.idConsulta)}                 
+                                                >
+                                                Ver detalhes
+                                                </button></td>
                                             </tr>
                                         </table>
                                     </div>

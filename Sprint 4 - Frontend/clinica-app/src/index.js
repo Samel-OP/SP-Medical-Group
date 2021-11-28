@@ -16,6 +16,8 @@ import cadastroConsulta from './pages/cadastroConsultas/cadastroConsulta';
 import consultaPaciente from './pages/consultaPacientes/consultaPaciente';
 import consultaMedico from './pages/consultaMedicos/consultaMedico';
 import descricaoPaciente from './pages/descricaoPacientes/descricaoPaciente';
+import descricaoMedico from './pages/descricaoMedicos/descricaoMedico';
+import descricaoAdm from './pages/descricaoAdm/descricaoAdm';
 
 import { parseJwt, usuarioAutenticado } from '../src/services/auth';
 
@@ -60,18 +62,18 @@ const PermissaoPaciente = ({ component: Component }) => (
   />
 );
 
-
 const routing = (
   <Router>
     <div>
       <Switch>
         <Route exact path="/" component={App} />  
-        <Route path="/login" component={Login} />
         <Route path="/notFound" component={NotFound} />
         <PermissaoAdm path="/cadastroConsulta" component={cadastroConsulta} />
         <PermissaoPaciente path="/consultaPaciente" component={consultaPaciente} />
         <PermissaoMedico path="/consultaMedico" component={consultaMedico} />
+        <PermissaoAdm path="/descricaoAdm" component={descricaoAdm} />
         <PermissaoPaciente path="/descricaoPaciente" component={descricaoPaciente} />
+        <PermissaoMedico path="/descricaoMedico" component={descricaoMedico} />
         <Redirect to ="/notFound" />
       </Switch>
     </div>

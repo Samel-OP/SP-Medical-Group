@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 import '../../assets/css/style.css';
 
@@ -7,20 +8,17 @@ import Header from '../../components/header';
 import Rodape from '../../components/rodape';
 
 import { FaChevronCircleLeft } from "react-icons/fa"
-import consultaPaciente from '../consultaPacientes/consultaPaciente';
 
 export default class descricaoPaciente extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            consultaPaciente: [],
-            listaSituacao: [],
-            listaPacientes: [],
-            listaMedicos: []
+            Consulta: []
         };
     }
 
     //Listar as minhas consultas
+
 
     buscarConsultas = () => {
         axios('http://localhost:5000/api/paciente/minhasConsultas', {
@@ -28,50 +26,29 @@ export default class descricaoPaciente extends Component {
                 Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
             },
         })
+
             .then((resposta) => {
+
+                let id = localStorage.getItem('usuario-consulta')
+
                 if (resposta.status === 200) {
-                    this.setState({ listaMinhasConsultas: resposta.data });
+
+                    resposta.data.map((consulta) => {
+
+                        if (consulta.idConsulta == id) {
+                            return (
+                                this.setState({ Consulta: [consulta] })
+                            );
+                        }
+
+                    });
                 }
             })
             .catch((erro) => console.log(erro));
     };
 
-    //Listar pacientes
-    buscarPacientes = () => {
-        axios('http://localhost:5000/api/paciente', {
-            headers: {
-                Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
-            },
-        })
-            .then((resposta) => {
-                if (resposta.status === 200) {
-                    this.setState({ listaPacientes: resposta.data });
-                    // console.log(resposta.data);
-                    // console.log(this.state.listaPacientes)
-                }
-            })
-            .catch((erro) => console.log(erro));
-    }
-
-    //Listar médicos
-    buscarMedicos = () => {
-        axios('http://localhost:5000/api/medico', {
-            headers: {
-                Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
-            },
-        })
-            .then((resposta) => {
-                if (resposta.status === 200) {
-                    this.setState({ listaMedicos: resposta.data });
-                }
-            })
-            .catch((erro) => console.log(erro));
-    }
-
     componentDidMount() {
         this.buscarConsultas();
-        this.buscarPacientes();
-        this.buscarMedicos();
     }
 
     render() {
@@ -79,46 +56,51 @@ export default class descricaoPaciente extends Component {
             <div>
                 <main>
                     <Header />
-                    <section class="container_descricao">
-                        <div class="box_descricao">
-                            <div class="box_consulta_voltar">
-                                <div class="voltar_consulta">
-                                    <a href="#"><FaChevronCircleLeft size={50} /></a>
-                                    <a href="#">Voltar</a>
+                    <section className="container_descricao">
+                        <div className="box_descricao">
+                            <div className="box_consulta_voltar">
+                                <div className="voltar_consulta">
+                                    <Link to="/consultaPaciente"><FaChevronCircleLeft size={50} /></Link>
+                                    <Link to="/consultaPaciente">Voltar</Link>
                                 </div>
-                                <h1 class="titulo_consulta">Consulta</h1>
+                                <div>
+                                    <h1 className="titulo_consulta">Consulta</h1>
+                                    <hr className="barra_consulta" />
+                                </div>
                             </div>
-                            <hr class="barra_consulta" />
 
-
-                            {consultaPaciente.map((consulta) => {
+                            {this.state.Consulta.map((consulta) => {
                                 return (
-                                    <div class="dados_descricao">
-                                        <div class="primeira_coluna_descricao">
-                                            <div class="fundo_dados">
-                                                <span class="descricao">N° Consulta: <p>{this.state.listaConsultas.idConsulta}</p> </span>
+                                    <div className="dados_descricao" key={consulta.idConsulta}>
+                                        <div className="primeira_coluna_descricao">
+                                            <div className="fundo_dados">
+                                                <span className="descricao">N° Consulta: <p className="dados">{consulta.idConsulta}</p> </span>
                                             </div>
-                                            <div class="fundo_dados">
-                                                <span class="descricao">Nome Médico: </span>
+                                            <div className="fundo_dados">
+                                                <span className="descricao">Nome Médico: <p className="dados">{consulta.idMedicoNavigation.idUsuarioNavigation.nomeUsuario}</p> </span>
                                             </div>
-                                            <div class="fundo_dados">
-                                                <span class="descricao">Data da Consulta: </span>
+                                            <div className="fundo_dados">
+                                                <span className="descricao">Data da Consulta: <p className="dados">{Intl.DateTimeFormat("pt-BR", {
+                                                    year: 'numeric', month: 'numeric', day: 'numeric',
+                                                    hour: 'numeric', minute: 'numeric', hour12: false
+                                                }).format(new Date(consulta.dataConsulta))}</p> </span>
                                             </div>
-                                            <div class="fundo_dados">
-                                                <span class="descricao">Situação: </span>
+                                            <div className="fundo_dados">
+                                                <span className="descricao">Situação: <p className="dados">{consulta.idSituacaoNavigation.nomeSituacao}</p> </span>
                                             </div>
                                         </div>
-                                        <div class="segunda_coluna_descricao">
-                                            <div class="fundo_dados">
-                                                <span class="descricao">Nome Paciente: <p>{consulta.idConsulta.nomePaciente}</p></span>
+                                        <div className="segunda_coluna_descricao">
+                                            <div className="fundo_dados">
+                                                <span className="descricao">Nome Paciente: <p className="dados">{consulta.idPacienteNavigation.idUsuarioNavigation.nomeUsuario}</p></span>
                                             </div>
-                                            <div class="fundo_dados_descricao">
-                                                <span class="descricao_consulta">Descrição: </span>
+                                            <div className="fundo_dados_descricao">
+                                                <span className="descricao_consulta">Descrição: <p className="dados">{consulta.descricao}</p> </span>
                                             </div>
                                         </div>
                                     </div>
                                 )
-                            })}
+                            })
+                            }
                         </div>
                     </section>
                     <Rodape />

@@ -68,6 +68,13 @@ export default class consultaMedico extends Component {
             .catch((erro) => console.log(erro));
     }
 
+    //Pegar Id
+    PegarIdConsulta = (id) => {
+        localStorage.setItem('usuario-consulta', id);
+        console.log(id)
+        this.props.history.push('/descricaoMedico')
+    }
+
     componentDidMount() {
         this.buscarConsultas();
         this.buscarPacientes();
@@ -97,7 +104,10 @@ export default class consultaMedico extends Component {
                                                     year: 'numeric', month: 'numeric', day: 'numeric',
                                                     hour: 'numeric', minute: 'numeric', hour12: false
                                                 }).format(new Date(minhasConsultas.dataConsulta))}</td>
-                                                <td><button class="btn_lista_detalhes">Ver detalhes</button></td>
+                                                <td><button 
+                                                class="btn_lista_detalhes"
+                                                onClick={() => this.PegarIdConsulta(minhasConsultas.idConsulta)}
+                                                >Ver detalhes</button></td>
                                             </tr>
                                         </table>
                                     </div>
