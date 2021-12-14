@@ -6,7 +6,7 @@ import {
     View,
     TouchableOpacity,
     ImageBackground,
-} from 'react-native'
+} from 'react-native';
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -17,10 +17,29 @@ export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            senha: '',
+            email: 'Adm@adm.com',
+            senha: 'Adm12145',
         };
     }
+
+    realizarLogin = async () => {
+
+        console.warn(this.state.email + ' ' + this.state.senha);
+
+        const resposta = await api.post('/login', {
+            email: this.state.email,
+            senha: this.state.senha,
+        });
+
+        const token = resposta.data.token;
+        await AsyncStorage.setItem('userToken', token);
+
+        if (resposta.status == 200) {
+            this.props.navigation.navigate('ConsultaPaciente');
+        }
+
+        console.warn(token);
+    };
 
     render() {
         return (
@@ -37,7 +56,7 @@ export default class Login extends Component {
                         style={styles.inputLogin}
                         placeholder="Email"
                         placeholderTextColor="black"
-                        keyboardType="email-addresss"
+                        keyboardType="email-address"
 
                         onChangeText={email => this.setState({ email })}
                     />
@@ -54,7 +73,7 @@ export default class Login extends Component {
 
                     <TouchableOpacity
                         style={styles.btnEntrar}
-                    // onPress={this.}
+                        onPress={this.realizarLogin}
                     ><Text style={styles.textEnviar}>Entrar</Text>
                     </TouchableOpacity>
 
@@ -62,7 +81,7 @@ export default class Login extends Component {
                 </View>
 
             </ImageBackground>
-        )
+        );
     }
 }
 

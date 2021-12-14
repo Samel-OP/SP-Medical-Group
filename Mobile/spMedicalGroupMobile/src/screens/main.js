@@ -1,29 +1,35 @@
-// import React, { Component } from "react";
+import React, { Component } from "react";
 
-// import {
-//     StyleSheet,
-//     View,
-// } from 'react-native';
+import {
+    StyleSheet,
+    View,
+} from 'react-native';
 
-// import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import ConsultaPaciente from "./consultasPaciente";
 
-// const tab = createMaterialBottomTabNavigator();
+// import { BottomNavigation } from 'react-native-paper';
 
-// export default class Main extends Component {
-//     render() {
-//         return (
-//             <View style={styles.main}>
-//                 <tab.Navigator>
-//                     <tab.Screen name="Minhas consultas" ></tab.Screen>
-//                 </tab.Navigator>
-//             </View>
-//         )
-//     }
-// };
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-// const styles = StyleSheet.create({
-//     main: {
-//         flex: 1,
-//         backgroundColor: 'blue'
-//     },
-// });
+const bottomTab = createBottomTabNavigator();
+
+export default class Main extends Component {
+    render() {
+        return (
+            <View style={styles.main}>
+                <bottomTab.Navigator
+                 initialRouteName='ConsultaPaciente'
+                >
+                    <bottomTab.Screen name="Minhas consultas" Component={ConsultaPaciente} ></bottomTab.Screen>
+                </bottomTab.Navigator>
+            </View>
+        )
+    }
+};
+
+const styles = StyleSheet.create({
+    main: {
+        flex: 1,
+        backgroundColor: 'blue'
+    },
+});
