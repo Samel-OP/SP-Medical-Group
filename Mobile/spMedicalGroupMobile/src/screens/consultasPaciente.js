@@ -4,44 +4,45 @@ import {
     View,
     Text,
     TouchableOpacity,
-    ScrollView
 } from "react-native";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import api from "../services/api";
 
-// import { FlatList } from "react-native-gesture-handler";
+import { FlatList } from "react-native-gesture-handler";
 
-export default class ConsultaPaciente extends Component {
+export default class Descricao extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            idConsulta: 0,
             listaConsultas: []
         };
     }
 
     buscarMinhasConsultas = async () => {
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbnJpcXVlQGdtYWlsLmNvbSIsImp0aSI6IjYiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIzIiwicm9sZSI6IjMiLCJleHAiOjE2MzkyNTM3MjUsImlzcyI6InNwTWVkaWNhbEdyb3VwLndlYkFQSSIsImF1ZCI6InNwTWVkaWNhbEdyb3VwLndlYkFQSSJ9.5NdYa5BNdk3vwC5hHdH6SzCIVCT6Z8HXcukOLKHBDDI"
+        const token = await AsyncStorage.getItem('userToken');
         const resposta = await api.get('/paciente/minhasConsultas', {
             headers: {
                 Authorization: 'Bearer ' + token
             },
-            // nomePaciente: this.state.nomePaciente,
-            // dataConsulta: this.state.dataConsulta,
         });
-
-        // const token = resposta.data.token;
+        
         await AsyncStorage.setItem('userToken', token);
-
+        
         if (resposta.status == 200) {
             const dadosApi = resposta.data;
             this.setState({ listaConsultas: dadosApi });
-            console.warn("Foi buscado!")
+            console.warn("Foi buscado!")       
         }
 
         console.warn(resposta.data);
     };
+
+    navegarDescricao = async () => {
+        this.props.navigation.navigate('Descricao');
+    }
 
     componentDidMount() {
         this.buscarMinhasConsultas();
@@ -60,18 +61,26 @@ export default class ConsultaPaciente extends Component {
                     </View>
                 </View>
 
-                <ScrollView>
-                    <View style={styles.boxLista}>
-                        <View style={styles.conteudoLista}>
-                            <Text style={styles.nomePaciente}>Samuel Pereira</Text>
-                            <Text style={styles.dataConsulta}>20/04/2004</Text>
-                            <TouchableOpacity style={styles.btnVerDetalhes}><Text style={styles.btnText}>Ver detalhes</Text></TouchableOpacity>
-                        </View>
-                    </View>
-                </ScrollView>
+                <FlatList 
+                data={this.state.listaConsultas}
+                keyExtractor={item => item.idConsulta}
+                renderItem={this.renderItem}
+                />
             </View>
         );
     }
+
+    renderItem = ({ item }) => (
+        <View style={styles.boxLista}>
+            <View style={styles.conteudoLista}>
+                <Text style={styles.nomePaciente}>{item.idPacienteNavigation.idUsuarioNavigation.nomeUsuario}</Text>
+                <Text style={styles.dataConsulta}>{Intl.DateTimeFormat("pt-BR", {
+                    year: 'numeric', month: 'short', day: 'numeric', hour12: true
+                }).format(new Date(item.dataConsulta))}</Text>
+                <TouchableOpacity onPress={this.navegarDescricao} style={styles.btnVerDetalhes}><Text style={styles.btnText}>Ver detalhes</Text></TouchableOpacity>
+            </View>
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
@@ -92,12 +101,13 @@ const styles = StyleSheet.create({
         marginTop: 35
     },
     boxTitulo: {
-        width: 350,
+        width: 375,
         height: 40,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#006FAB',
-        borderRadius: 30
+        borderRadius: 30,
+        marginBottom: 50
     },
     textTitulo: {
         fontFamily: 'OpenSans-Regular',
@@ -109,14 +119,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     conteudoLista: {
-        width: 325,
+        width: 350,
         height: 75,
         backgroundColor: '#BDEBFE',
         alignItems: 'center',
         justifyContent: 'space-evenly',
         flexDirection: 'row',
         borderRadius: 10,
-        marginTop: 50
+        marginBottom: 25
     },
     nomePaciente: {
         fontFamily: 'OpenSans-Regular',

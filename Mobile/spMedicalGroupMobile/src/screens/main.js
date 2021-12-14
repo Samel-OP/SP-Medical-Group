@@ -21,6 +21,7 @@ export default class Main extends Component {
                  initialRouteName='ConsultaPaciente'
                 >
                     <bottomTab.Screen name="Minhas consultas" Component={ConsultaPaciente} ></bottomTab.Screen>
+                    {/* <bottomTab.Screen name="Coé" Component={} ></bottomTab.Screen> */}
                 </bottomTab.Navigator>
             </View>
         )

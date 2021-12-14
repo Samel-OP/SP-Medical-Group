@@ -31,7 +31,7 @@ namespace senai.spMedicalGroup.webAPI.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-20INV7D\\SQLEXPRESS; Initial Catalog=SP_MED_GROUP; user id=sa; pwd=SenaiSamuel1;");
+                optionsBuilder.UseSqlServer("Data Source=NOTE0113I5\\SQLEXPRESS; Initial Catalog=SP_MED_GROUP; user id=sa; pwd=Senai@132;");
                 //optionsBuilder.UseSqlServer("Data Source=NOTE0113D2\\SQLEXPRESS; Initial Catalog=SP_MED_GROUP; user id=sa; pwd=Senai@132;");
                 //optionsBuilder.UseSqlServer("Server=tcp:sp-med-group-tarde.database.windows.net,1433;Initial Catalog=SP_MED_GROUP;Persist Security Info=False;User ID=senai-tarde;Password=Samuel123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
