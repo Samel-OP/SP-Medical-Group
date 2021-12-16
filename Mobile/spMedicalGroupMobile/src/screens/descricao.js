@@ -15,6 +15,7 @@ export default class Descricao extends Component {
         super(props);
         this.state = {
             idConsulta: 0,
+            Consulta: [],
             listaConsultas: []
         };
     }
@@ -25,19 +26,25 @@ export default class Descricao extends Component {
             headers: {
                 Authorization: 'Bearer ' + token
             },
-            // nomePaciente: this.state.nomePaciente,
-            // dataConsulta: this.state.dataConsulta,
         });
 
-        await AsyncStorage.setItem('userToken', token);
-
         if (resposta.status == 200) {
-            const dadosApi = resposta.data;
-            this.setState({ listaConsultas: dadosApi });
-            console.warn("Foi buscado!")
+            let id = AsyncStorage.getItem('userConsulta')
+
+            if (resposta.status === 200) {
+
+                resposta.data.map((consulta) => {
+
+                    if (consulta.idConsulta == id) {
+                        return (
+                            this.setState({ Consulta: [consulta] })
+                        );
+                    }
+                });
+            }
         }
 
-        console.warn(resposta.data);
+        // console.warn(resposta.data);
     };
 
     componentDidMount() {
@@ -101,7 +108,7 @@ export default class Descricao extends Component {
                         <View>
                             <Text style={styles.textConsulta}>Descrição:</Text>
                             <View style={styles.boxConsulta}>
-                                <View style={styles.boxDadosConusulta}>
+                                <View style={styles.boxDadosConusultaDescricao}>
                                     <Text></Text>
                                 </View>
                             </View>
@@ -131,10 +138,10 @@ const styles = StyleSheet.create({
     },
     boxConteudo: {
         width: 350,
-        height: 575,
+        height: 605,
         backgroundColor: '#BDEBFE',
         borderRadius: 10,
-        marginTop: 35
+        marginTop: 25
     },
     boxTitulo: {
         alignItems: 'center',
@@ -156,12 +163,38 @@ const styles = StyleSheet.create({
     textConsulta: {
         fontFamily: 'OpenSans-Regular',
         color: 'black',
-        fontSize: 14
+        fontSize: 14,
+        marginLeft: 25,
+        marginTop: 20
     },
     boxDadosConusulta: {
         width: 300,
         height: 40,
         backgroundColor: 'white',
-        borderRadius: 5
+        borderRadius: 5,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 3,
+        },
+        shadowOpacity: 0.29,
+        shadowRadius: 4.65,
+
+        elevation: 7,
+    },
+    boxDadosConusultaDescricao: {
+        width: 300,
+        height: 100,
+        backgroundColor: 'white',
+        borderRadius: 5,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 3,
+        },
+        shadowOpacity: 0.29,
+        shadowRadius: 4.65,
+
+        elevation: 7,
     },
 })

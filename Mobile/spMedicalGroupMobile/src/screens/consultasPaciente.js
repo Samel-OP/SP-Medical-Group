@@ -28,17 +28,24 @@ export default class Descricao extends Component {
                 Authorization: 'Bearer ' + token
             },
         });
-        
+
         await AsyncStorage.setItem('userToken', token);
-        
+
         if (resposta.status == 200) {
             const dadosApi = resposta.data;
+            // console.warn(dadosApi)
             this.setState({ listaConsultas: dadosApi });
-            console.warn("Foi buscado!")       
+            console.warn("Foi buscado!")
         }
 
         console.warn(resposta.data);
     };
+
+    PegarIdConsulta = async (id) => {
+        await AsyncStorage.setItem.JSON.stringfy('userConsulta', id);
+        console.warn(id)
+        this.props.navigation.navigate('Descricao');
+    }
 
     navegarDescricao = async () => {
         this.props.navigation.navigate('Descricao');
@@ -61,10 +68,10 @@ export default class Descricao extends Component {
                     </View>
                 </View>
 
-                <FlatList 
-                data={this.state.listaConsultas}
-                keyExtractor={item => item.idConsulta}
-                renderItem={this.renderItem}
+                <FlatList
+                    data={this.state.listaConsultas}
+                    keyExtractor={item => item.idConsulta}
+                    renderItem={this.renderItem}
                 />
             </View>
         );
@@ -77,7 +84,10 @@ export default class Descricao extends Component {
                 <Text style={styles.dataConsulta}>{Intl.DateTimeFormat("pt-BR", {
                     year: 'numeric', month: 'short', day: 'numeric', hour12: true
                 }).format(new Date(item.dataConsulta))}</Text>
-                <TouchableOpacity onPress={this.navegarDescricao} style={styles.btnVerDetalhes}><Text style={styles.btnText}>Ver detalhes</Text></TouchableOpacity>
+                <TouchableOpacity 
+                // onPress={this.navegarDescricao} 
+                onPress={this.PegarIdConsulta} style={styles.btnVerDetalhes}
+                ><Text style={styles.btnText}>Ver detalhes</Text></TouchableOpacity>
             </View>
         </View>
     )
@@ -126,7 +136,16 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         flexDirection: 'row',
         borderRadius: 10,
-        marginBottom: 25
+        marginBottom: 25,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 3,
+        },
+        shadowOpacity: 0.29,
+        shadowRadius: 4.65,
+
+        elevation: 7,
     },
     nomePaciente: {
         fontFamily: 'OpenSans-Regular',
