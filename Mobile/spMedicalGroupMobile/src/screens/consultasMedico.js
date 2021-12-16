@@ -12,7 +12,7 @@ import api from "../services/api";
 
 import { FlatList } from "react-native-gesture-handler";
 
-export default class ConsultaPaciente extends Component {
+export default class ConsultaMedico extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,7 +23,7 @@ export default class ConsultaPaciente extends Component {
 
     buscarMinhasConsultas = async () => {
         const token = await AsyncStorage.getItem('userToken');
-        const resposta = await api.get('/paciente/minhasConsultas', {
+        const resposta = await api.get('/medico/minhasConsultas', {
             headers: {
                 Authorization: 'Bearer ' + token
             },

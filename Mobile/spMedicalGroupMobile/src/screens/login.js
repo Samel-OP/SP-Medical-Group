@@ -34,8 +34,14 @@ export default class Login extends Component {
         const token = resposta.data.token;
         await AsyncStorage.setItem('userToken', token);
 
-        if (resposta.status == 200) {
-            this.props.navigation.navigate('ConsultaPaciente');
+        if (resposta.status == 200) { 
+            if (parseJwt().role === '2')
+            {
+                this.props.navigation.navigate('ConsultaMedico');
+            }
+            else {
+                this.props.navigation.navigate('ConsultaPaciente');
+            }
         }
 
         console.warn(token);
