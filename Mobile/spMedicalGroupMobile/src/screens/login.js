@@ -13,6 +13,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import api from "../services/api";
 import { TextInput } from "react-native-gesture-handler";
 
+import jwtDecode from "jwt-decode";
+
 export default class Login extends Component {
     constructor(props) {
         super(props);
@@ -26,25 +28,30 @@ export default class Login extends Component {
 
         console.warn(this.state.email + ' ' + this.state.senha);
 
-        const resposta = await api.post('/login', {
-            email: this.state.email,
-            senha: this.state.senha,
-        });
-
-        const token = resposta.data.token;
-        await AsyncStorage.setItem('userToken', token);
-
-        if (resposta.status == 200) { 
-            if (parseJwt().role === '2')
-            {
-                this.props.navigation.navigate('ConsultaMedico');
+        try {
+            const resposta = await api.post('/login', {
+                email: this.state.email,
+                senha: this.state.senha,
+            });
+    
+            const token = resposta.data.token;
+            await AsyncStorage.setItem('userToken', token);
+    
+            if (resposta.status == 200) { 
+                console.warn(resposta.status)
+                if(jwtDecode(token).role == 2 )
+                {
+                    console.warn("FOI!")
+                    this.props.navigation.navigate('ConsultaMedico');
+                }
+                else {
+                    this.props.navigation.navigate('ConsultaPaciente');
+                }
             }
-            else {
-                this.props.navigation.navigate('ConsultaPaciente');
-            }
+        } catch (error) {
+            console.warn(error)
         }
-
-        console.warn(token);
+        // console.warn(token);
     };
 
     render() {

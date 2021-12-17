@@ -58,19 +58,21 @@ VALUES (1,2,8,'54356SP','Ricardo Lemos'),
 GO
 
 INSERT INTO paciente (idUsuario,nomePaciente,dataNascimento,telefone,RG,CPF,rua,bairro,cidade,estado,CEP)
-VALUES (3,'Ligia','1983-10-13','1134567654','435225435','94839859000','Rua Estado de Israel 240','Vila Mariana','São Paulo','SP','04022000'),
-       (4,'Alexandre','2001-7-23','11987656543','326543457','73556944057','Av. Paulista, 1578','Bela Vista','São Paulo','SP','01310200'),
-	   (5,'Fernando','1978-10-10','11972084453','546365253','16839338002','Av. Ibirapuera, 2927','Indianópolis','São Paulo','SP','04029200'),
-	   (6,'Henrique','1985-10-13','1134566543','543663625','14332654765','R. Vitória, 120','Vila Sao Jorge, Barueri','São Paulo','SP','06402030'),
-	   (7,'João','1975-8-27','1176566377','532544441','91305348010','R. Ver. Geraldo de Camargo, 66','Santa Luzia','Ribeirão Pires','SP','09405380'),(8,'Bruno','1972-3-21','11954368769','545662667','79799299004','Alameda dos Arapanés, 945','Indianópolis','São Paulo','SP','04524001'),(9,'Mariana','2018-03-05',NULL,'545662668','13771913039','R Sao Antonio, 232','Vila Universal, Barueri','São Paulo','SP','06407140');
+VALUES (1,'Ligia','1983-10-13','1134567654','435225435','94839859000','Rua Estado de Israel 240','Vila Mariana','São Paulo','SP','04022000'),
+       (2,'Alexandre','2001-7-23','11987656543','326543457','73556944057','Av. Paulista, 1578','Bela Vista','São Paulo','SP','01310200'),
+	   (3,'Fernando','1978-10-10','11972084453','546365253','16839338002','Av. Ibirapuera, 2927','Indianópolis','São Paulo','SP','04029200'),
+	   (4,'Henrique','1985-10-13','1134566543','543663625','14332654765','R. Vitória, 120','Vila Sao Jorge, Barueri','São Paulo','SP','06402030'),
+	   (5,'João','1975-8-27','1176566377','532544441','91305348010','R. Ver. Geraldo de Camargo, 66','Santa Luzia','Ribeirão Pires','SP','09405380'),
+	   (6,'Bruno','1972-3-21','11954368769','545662667','79799299004','Alameda dos Arapanés, 945','Indianópolis','São Paulo','SP','04524001'),
+	   (7,'Mariana','2018-03-05',NULL,'545662668','13771913039','R Sao Antonio, 232','Vila Universal, Barueri','São Paulo','SP','06407140');
 GO
 
 INSERT INTO consulta (idPaciente,idMedico,idSituacao,dataConsulta,descricao)
-VALUES (7,7,1,'20/01/2020 15:00','Paciente está bem'),
-	   (2,6,2,'06/01/2020 10:00','Tudo correu bem'),
-	   (3,6,1,'07/02/2020 11:00','Foi conversado sobre o problema mas está bem'),
-	   (2,6,1,'06/02/2018 10:00','Paciente está bem'),
-	   (4,5,2,'07/02/2019 11:00','Foi aplicado anestesia para realizar procedimento'),
-	   (7,7,3,'08/03/2020 15:00','Ainda não ocorreu'),
-	   (4,5,3,'09/03/2020 11:00','Ainda não ocorreu');
+VALUES (7,3,1,'20/01/2020 15:00','Paciente está bem'),
+	   (2,2,2,'06/01/2020 10:00','Tudo correu bem'),
+	   (3,2,1,'07/02/2020 11:00','Foi conversado sobre o problema mas está bem'),
+	   (2,2,1,'06/02/2018 10:00','Paciente está bem'),
+	   (4,1,2,'07/02/2019 11:00','Foi aplicado anestesia para realizar procedimento'),
+	   (7,3,3,'08/03/2020 15:00','Ainda não ocorreu'),
+	   (4,1,3,'09/03/2020 11:00','Ainda não ocorreu');
 GO

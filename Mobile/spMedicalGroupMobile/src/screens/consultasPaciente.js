@@ -46,15 +46,15 @@ export default class ConsultaPaciente extends Component {
             // console.warn(id)
             await AsyncStorage.setItem('userConsulta', JSON.stringify(id));
             // console.warn(id)
-            this.props.navigation.navigate('Descricao');
+            this.props.navigation.navigate('DescricaoPaciente');
         } catch (error) {
             console.warn(error)
         }
     }
 
-    navegarDescricao = async () => {
-        this.props.navigation.navigate('Descricao');
-    }
+    // navegarDescricao = async () => {
+    //     this.props.navigation.navigate('Descricao');
+    // }
 
     componentDidMount() {
         this.buscarMinhasConsultas();

@@ -37,23 +37,15 @@ export default class ConsultaMedico extends Component {
             this.setState({ listaConsultas: dadosApi });
             console.warn("Foi buscado!")
         }
-
-        // console.warn(resposta.data);
     };
 
     PegarIdConsulta = async (id) => {
-        try {
-            // console.warn(id)
+        try {         
             await AsyncStorage.setItem('userConsulta', JSON.stringify(id));
-            // console.warn(id)
-            this.props.navigation.navigate('Descricao');
+            this.props.navigation.navigate('DescricaoMedico');
         } catch (error) {
             console.warn(error)
         }
-    }
-
-    navegarDescricao = async () => {
-        this.props.navigation.navigate('Descricao');
     }
 
     componentDidMount() {

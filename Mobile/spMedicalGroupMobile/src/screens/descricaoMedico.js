@@ -10,7 +10,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import api from "../services/api";
 
-export default class Descricao extends Component {
+export default class DescricaoMedico extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,7 +22,7 @@ export default class Descricao extends Component {
 
     buscarMinhasConsultas = async () => {
         const token = await AsyncStorage.getItem('userToken');
-        const resposta = await api.get('/paciente/minhasConsultas', {
+        const resposta = await api.get('/medico/minhasConsultas', {
             headers: {
                 Authorization: 'Bearer ' + token
             },
