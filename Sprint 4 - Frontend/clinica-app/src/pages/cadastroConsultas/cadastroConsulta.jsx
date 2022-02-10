@@ -28,9 +28,9 @@ export default class cadastroConsulta extends Component {
     //Listar as consultas
 
     buscarConsultas = () => {
-        axios('http://localhost:5000/api/consulta', {
+        axios('https://620556dd161670001741b939.mockapi.io/paciente', {
             headers: {
-                Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
+                //Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
             },
         })
             .then((resposta) => {
@@ -44,7 +44,7 @@ export default class cadastroConsulta extends Component {
 
     //Listar pacientes
     buscarPacientes = () => {
-        axios('http://localhost:5000/api/paciente', {
+        axios('https://620556dd161670001741b939.mockapi.io/usuario/1/paciente', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
             },
@@ -220,13 +220,13 @@ export default class cadastroConsulta extends Component {
                                     <div class="box_lista">
                                         <table class="tabela_lista">
                                             <tr class="box_lista_conteudo" key={consulta.idConsulta}>
-                                                <td class="numero_Consulta">{consulta.idConsulta}</td>
+                                                <td class="numero_Consulta">{consulta.id}</td>
                                                 {/* <td class="nome_paciente">{console.log(this.state.listaPacientes)}{console.log(consulta.idPaciente)}</td> */}
-                                                <td class="nome_paciente">{consulta.idPacienteNavigation.idUsuarioNavigation.nomeUsuario}</td>
-                                                <td class="data_consulta">{Intl.DateTimeFormat("pt-BR", {
+                                                <td class="nome_paciente">{consulta.nomePaciente}</td>
+                                                {/* <td class="data_consulta">{Intl.DateTimeFormat("pt-BR", {
                                                     year: 'numeric', month: 'numeric', day: 'numeric',
                                                     hour: 'numeric', minute: 'numeric', hour12: false
-                                                }).format(new Date(consulta.dataConsulta))}</td>
+                                                }).format(new Date(consulta.dataConsulta))}</td> */}
                                                 <td><button class="btn_lista_detalhes"
                                                 onClick={() => this.PegarIdConsulta(consulta.idConsulta)}
                                                 >Ver detalhes</button></td>

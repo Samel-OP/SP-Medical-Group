@@ -66,7 +66,7 @@ const routing = (
   <Router>
     <div>
       <Switch>
-        <Route exact path="/" component={App} />  
+        <Route exact path="/" component={cadastroConsulta} />  
         <Route path="/notFound" component={NotFound} />
         <PermissaoAdm path="/cadastroConsulta" component={cadastroConsulta} />
         <PermissaoPaciente path="/consultaPaciente" component={consultaPaciente} />

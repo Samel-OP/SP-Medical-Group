@@ -23,7 +23,7 @@ export default class consultaPaciente extends Component {
     //Listar as minhas consultas
 
     buscarConsultas = () => {
-        axios('http://localhost:5000/api/paciente/minhasConsultas', {
+        axios('zz', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
             },
